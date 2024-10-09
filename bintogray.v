@@ -30,7 +30,7 @@ endmodule*/
     genvar i;
 
     generate
-        // Generate the Gray code conversion logic
+        
         for (i = 0; i < ADDRLEN; i = i + 1) begin : gray_loop
             if (i == ADDRLEN-1) begin
                 assign grayptr[ADDRLEN-1] = binptr[ADDRLEN-1];
