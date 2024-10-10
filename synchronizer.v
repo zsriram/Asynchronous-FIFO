@@ -185,11 +185,9 @@ module synchronizer #(parameter ADDRLEN = 4)(
             //sync_wptr <= 0;
         end
         else begin
-            for (i = 0; i < ADDRLEN; i = i + 1) begin
-                q1_wptr[i] <= wptr[i];
-                q2_wptr[i] <= q1_wptr[i];
-                sync_wptr[i] <= q2_wptr[i];
-            end
+                q1_wptr <= wptr;
+                q2_wptr <= q1_wptr;
+                sync_wptr <= q2_wptr;
         end
     end
 
@@ -202,11 +200,9 @@ module synchronizer #(parameter ADDRLEN = 4)(
            // sync_rptr <= 0;
         end
         else begin
-            for (i = 0; i < ADDRLEN; i = i + 1) begin
-                q1_rptr[i] <= rptr[i];
-                q2_rptr[i] <= q1_rptr[i];
-                sync_rptr[i] <= q2_rptr[i];
-            end
+                q1_rptr <= rptr;
+                q2_rptr <= q1_rptr;
+                sync_rptr <= q2_rptr;
         end
     end
 
